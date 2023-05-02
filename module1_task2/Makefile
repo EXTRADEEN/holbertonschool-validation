@@ -9,7 +9,7 @@ build: ## Generate the website from the markdown and configuration files in the 
 	hugo
 
 .PHONY: clean
-clean: ## Cleanup the content of the directory dist/
+clean: ## Clean up the content of the directory dist/
 	rm -rf dist/*
 
 .PHONY: post
