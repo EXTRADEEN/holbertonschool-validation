@@ -13,3 +13,4 @@
 * “clean”: Stop the application
 * “test”: You want to test it to ensure that it behaves as expected
 * “help": Print a list of all the goals with a sentence
+* “unit-tests": Execute the Golan unit tests
