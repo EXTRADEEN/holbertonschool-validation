@@ -7,9 +7,10 @@ lint: 	## Should fail when the linter catches and error
 	golangci-lint run
 	
 build:	## Generate the source code of the application to a binary.
+	$(MAKE) lint
 	$(GO) mod tidy
 	$(GO) build -o $(TARGET)
-	golangci-lint run
+	
 run:	## Run the application in background by executing the binary.
 	./$(TARGET) >./$(TARGET).log 2>&1 &
 
