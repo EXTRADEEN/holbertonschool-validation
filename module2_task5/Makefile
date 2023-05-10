@@ -1,6 +1,8 @@
 build: ## Generate the website from the markdown and configuration files in the directory dist/
 	markdownlint README.md content/posts/*
 	markdown-link-check README.md content/posts/*
+	golangci-lint run
+	go build
 	hugo
 
 post: ## Create a new blog post whose filename and title come from the environment variables POST_TITLE and POST_NAME
@@ -39,6 +41,4 @@ integration-tests:	## Execute (successfully) the Golang integration-tests
 	go test -v -coverprofile=coverage-integrations.out
 
 help: ## Show help for each of the Makefile recipes.
-	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'build:	## Compile source code of the application to a binary
-	golangci-lint run
-	go build
+	@fgrep -h "##" $(MAKEFILE_LIST) | fgrep -v fgrep | sed -e 's/\\$$//' | sed -e 's/##//'
