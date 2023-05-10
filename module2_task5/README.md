@@ -6,10 +6,11 @@ Before building the website, you must have the following tools installed:
 
 - Go-Hugo
 - Make
-* Golang in v1.15.*
-* NPM v7+ with NodeJS v14.* (stable)
-* Python 3 with pip module
-* golangci-lint
+
+- Golang in v1.15.*
+- NPM v7+ with NodeJS v14.* (stable)
+- Python 3 with pip module
+- golangci-lint
 
 You must also have the Ananke theme installed in your Hugo site.
 
@@ -26,15 +27,15 @@ POST_TITLE="My New Blog Post" POST_NAME="my-new-blog-post"`.
 5. To deploy the website to a hosting provider, run `hugo` to generate the
 static files in the `dist/` directory, then upload the contents of that
 directory to your hosting provider.
-* “lint”: Should fail when the linter catches and error
-* “build”: compile the source code of the application to a binary
-* “run”: Run the application in background by executing the binary
-* “stop”: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application
-* “clean”: Stop the application
-* “test”: You want to test it to ensure that it behaves as expected
-* “help": Print a list of all the goals with a sentence
-* “unit-tests": Execute the Golan unit tests
-* “integration-tests”: Execute the Golang integration-tests
+- “lint”: Should fail when the linter catches and error
+- “build”: compile the source code of the application to a binary
+- “run”: Run the application in background by executing the binary
+- “stop”: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application
+- “clean”: Stop the application
+- “test”: You want to test it to ensure that it behaves as expected
+- “help": Print a list of all the goals with a sentence
+- “unit-tests": Execute the Golan unit tests
+- “integration-tests”: Execute the Golang integration-tests
 
 ### Makefile Targets
 
