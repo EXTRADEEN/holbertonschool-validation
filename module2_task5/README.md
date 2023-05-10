@@ -27,10 +27,12 @@ POST_TITLE="My New Blog Post" POST_NAME="my-new-blog-post"`.
 5. To deploy the website to a hosting provider, run `hugo` to generate the
 static files in the `dist/` directory, then upload the contents of that
 directory to your hosting provider.
+
 - “lint”: Should fail when the linter catches and error
 - “build”: compile the source code of the application to a binary
 - “run”: Run the application in background by executing the binary
-- “stop”: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application
+- “stop”: Stop the application with the command kill XXXXX where XXXXX
+   is the Process ID of the application
 - “clean”: Stop the application
 - “test”: You want to test it to ensure that it behaves as expected
 - “help": Print a list of all the goals with a sentence
