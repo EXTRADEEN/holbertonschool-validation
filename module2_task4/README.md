@@ -18,8 +18,7 @@ files in the `dist/` directory.
 2. To clean up the `dist/` directory, run `make clean`.
 3. To create a new blog post with a custom title and filename, run `make post
 POST_TITLE="My New Blog Post" POST_NAME="my-new-blog-post"`.
-4. To view the website locally, run `hugo server -D` and visit
-http://localhost:1313 in your web browser.
+4. To view the website locally, run `hugo server -D`
 5. To deploy the website to a hosting provider, run `hugo` to generate the
 static files in the `dist/` directory, then upload the contents of that
 directory to your hosting provider.
