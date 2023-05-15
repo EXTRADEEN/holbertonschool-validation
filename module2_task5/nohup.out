@@ -1,0 +1,15 @@
+port 9999 already in use, attempting to use an available port
+Start building sites … 
+hugo v0.92.2+extended linux/amd64 BuildDate=2023-01-31T11:11:57Z VendorInfo=ubuntu:0.92.2-1ubuntu0.1
+Error: Error building site: "/home/dinu/Holberton School/holbertonschool-validation/module2_task5/content/posts/welcome.md:9:1": failed to extract shortcode: template for shortcode "form" not found
+Built in 1 ms
+port 9999 already in use, attempting to use an available port
+Start building sites … 
+hugo v0.92.2+extended linux/amd64 BuildDate=2023-01-31T11:11:57Z VendorInfo=ubuntu:0.92.2-1ubuntu0.1
+Error: Error building site: "/home/dinu/Holberton School/holbertonschool-validation/module2_task5/content/posts/welcome.md:9:1": failed to extract shortcode: template for shortcode "input" not found
+Built in 1 ms
+port 9999 already in use, attempting to use an available port
+Start building sites … 
+hugo v0.92.2+extended linux/amd64 BuildDate=2023-01-31T11:11:57Z VendorInfo=ubuntu:0.92.2-1ubuntu0.1
+Error: Error building site: "/home/dinu/Holberton School/holbertonschool-validation/module2_task5/content/posts/welcome.md:9:1": failed to extract shortcode: template for shortcode "input" not found
+Built in 1 ms

@@ -7,6 +7,7 @@
 * golangci-lint
 
 ### Lifecycle
+* “lint”: Should fail when the linter catches and error
 * “build”: compile the source code of the application to a binary
 * “run”: Run the application in background by executing the binary
 * “stop”: Stop the application with the command kill XXXXX where XXXXX is the Process ID of the application
