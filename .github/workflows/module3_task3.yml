@@ -1,7 +1,6 @@
----
 name: module3_task3
-# Events that trigger workflows
-on:  # yamllint disable-line rule:truthy
+
+on:
   push:
     branches:
       - master
@@ -16,13 +15,13 @@ jobs:
     runs-on: ubuntu-22.04
 
     steps:
-      - name: "Checkout"  # Download code from the repository
+      - name: "Checkout"
         uses: actions/checkout@v3
 
       - name: "Run bash script"
         run: cd module3_task3 && ./setup.sh
 
-      - name: "Run make build"  # Execute the command make build
+      - name: "Run make build"
         run: cd module3_task3 && make build
 
       - name: "Testing"
