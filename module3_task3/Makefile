@@ -39,9 +39,9 @@ integration-tests: ## Run integration tests
 
 lint:	## Lint go lang code
 	golangci-lint run
-    markdownlint `find content -name '*.md' -not -path 'content/posts/*'`
+	markdownlint DEPLOY.md
 
-check:	## Lint markdonw source, check dead links
+check:	## Lint markdown source, check dead links
 	markdownlint content/**/*.md
 	find content -name \*.md -print0 | xargs -0 -n1 markdown-link-check
 
