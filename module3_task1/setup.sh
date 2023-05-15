@@ -1,5 +1,5 @@
 #!/bin/bash
-apt-get update && sudo apt-get install -y make curl
+sudo apt-get update && sudo apt-get install -y make curl
 
 # Download Hugo binary
 HUGO_VERSION="0.84.0"
