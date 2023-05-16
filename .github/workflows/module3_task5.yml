@@ -50,19 +50,6 @@ jobs:
         with:
           name: "upload package"
           path: module3_task5/awesome-website.zip
-      
-      - name: deploy-preview
-        uses: nwtgck/actions-netlify@v2.0
-        with:
-          publish-dir: './module3_task5/dist'
-          github-token: ${{ secrets.TOKEN }}
-          deploy-message: 'Published on'
-          enable-pull-request-comment: true
-          enable-commit-comment: true
-          overwrites-pull-request-comment: true
-        env:
-          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
-          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
 
       - name: deploy
         uses: nwtgck/actions-netlify@v2.0
