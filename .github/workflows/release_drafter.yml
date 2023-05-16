@@ -2,7 +2,8 @@ name: release_drafter
 
 on:
   push:
-    branches: [main] # Update the branch name to 'main' if that is the expected branch
+    branches:
+      - main # Replace 'main' with the appropriate branch name
 
 permissions:
   contents: read
