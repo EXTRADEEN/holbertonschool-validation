@@ -21,4 +21,4 @@ to be determined
 
 ## How to quickly check the application is running
 
-Use the url in modern browser: <http://localhost:1313>
+Use the URL in a modern browser: [http://localhost:1313](http://localhost:1313)
