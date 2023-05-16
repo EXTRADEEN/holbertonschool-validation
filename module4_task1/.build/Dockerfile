@@ -3,18 +3,18 @@ FROM golang:1.15.8-buster
 ENV PATH="/usr/local/go/bin:/opt/W3C-Validator:${PATH}"
 
 # Install sudo
-RUN sudo apt-get update && \
-    sudo apt-get -y install curl python3-pip
+RUN apt-get update && \
+    apt-get -y install curl python3-pip
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-	&& sudo apt-get install -y --no-install-recommends \
+	&& apt-get install -y --no-install-recommends \
 	nodejs=14.* \
 	make=4.* \
 	# Cleanup APT cache to ease extension of this image
 	&& apt-get clean \
   	&& rm -rf /var/lib/apt/lists/*
 
-RUN sudo npm install -g npm@9.5.1
+RUN npm install -g npm@9.5.1
 
 # Download Hugo binary
 ARG HUGO_VERSION="0.84.0"
@@ -29,7 +29,7 @@ RUN curl --silent --show-error --location --output /tmp/golangci-lint.deb \
 RUN dpkg -i /tmp/golangci-lint.deb
 RUN rm -f /tmp/golangci-lint.deb
 
-RUN sudo npm install --global \
+RUN npm install --global \
   markdownlint-cli@0.26.0 \
   markdown-link-check@3.8.6
 
