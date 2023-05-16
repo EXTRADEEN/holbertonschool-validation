@@ -17,3 +17,4 @@ rm -f /tmp/golangci-lint.deb
 sudo npm install --global \
   markdownlint-cli@0.26.0 \
   markdown-link-check@3.8.6
+  
