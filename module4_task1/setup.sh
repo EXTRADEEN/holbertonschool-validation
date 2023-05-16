@@ -1,11 +1,11 @@
 #!/bin/bash
 
-apt-get update && sudo apt-get install -y make curl
+sudo apt-get update && sudo apt-get install -y make curl
 
 ## Add official nodejs distribution apt repository
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
 
-apt-get install -y --no-install-recommends nodejs=14.*
+sudo apt-get install -y --no-install-recommends nodejs=14.*
   # Cleanup APT cache to ease extension of this image
   #&& apt-get clean \
   #&& rm -rf /var/lib/apt/lists/*
@@ -25,7 +25,7 @@ rm -f /tmp/golangci-lint.deb
 
 
 
-npm install --global \
+sudo npm install --global \
   markdownlint-cli@0.26.0 \
   markdown-link-check@3.8.6
 

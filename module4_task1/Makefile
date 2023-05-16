@@ -11,7 +11,7 @@ DOCKER_IMAGE_BUILD_NAME=awesome:build
 
 build:	## Generate the source code of the application to a binary.
 	$(MAKE) lint
-	$(DOCKER) $(DOCKER_IMAGE_BUILD_NAME) $(GO) mod tidy
+	$(DOCKER) $(DOCKER_IMAGE_BUILD_NAME) $(GO) mod vendor
 	$(MAKE) check
 	$(DOCKER) $(DOCKER_IMAGE_BUILD_NAME) $(HUGO)
 	$(DOCKER) $(DOCKER_IMAGE_BUILD_NAME) $(GO) build -o $(TARGET)
