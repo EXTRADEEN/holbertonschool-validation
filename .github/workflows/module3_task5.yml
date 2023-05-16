@@ -1,12 +1,10 @@
 ---
 name: module3_task5
-# Events that trigger workflows
-on:  # yamllint disable-line rule:truthy
+
+on:
   push:
     branches:
       - main
-  schedule:
-    - cron: '0 0 * * *'
   pull_request:
     types: [opened, reopened, edited, ready_for_review]
 
@@ -51,11 +49,10 @@ jobs:
           name: "upload package"
           path: module3_task5/awesome-website.zip
 
-      - name: deploy
+      - name: deploy-preview
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './module3_task5/dist'
-          production-branch: master
           github-token: ${{ secrets.TOKEN }}
           deploy-message: 'Published on'
           enable-pull-request-comment: true
@@ -64,4 +61,15 @@ jobs:
         env:
           NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
           NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
-        timeout-minutes: 1
+
+      - name: deploy-production
+        if: github.ref == 'refs/heads/main'
+        uses: nwtgck/actions-netlify@v2.0
+        with:
+          publish-dir: './module3_task5/dist'
+          github-token: ${{ secrets.TOKEN }}
+          deploy-message: 'Published on'
+          production-branch: 'main'
+        env:
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
