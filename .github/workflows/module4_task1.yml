@@ -3,6 +3,8 @@ name: module4_task1
 run-name: module4_task1
 on:  # yamllint disable-line rule:truthy
   push:
+    # branches to consider in the event; optional, defaults to all
+    branches: main
   schedule:
     - cron: '0 0 * * *'
   pull_request:
