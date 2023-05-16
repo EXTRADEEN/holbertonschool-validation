@@ -3,8 +3,6 @@ name: module4_task1
 run-name: module4_task1
 on:  # yamllint disable-line rule:truthy
   push:
-    # branches to consider in the event; optional, defaults to all
-    branches: main
   schedule:
     - cron: '0 0 * * *'
   pull_request:
@@ -47,7 +45,7 @@ jobs:
         uses: nwtgck/actions-netlify@v2.0
         with:
           publish-dir: './${{ github.workflow }}/dist'
-          production-branch: main
+          production-branch: master
           github-token: ${{ secrets.GITHUB_TOKEN }}
           deploy-message: 'Published on'
           enable-pull-request-comment: true
