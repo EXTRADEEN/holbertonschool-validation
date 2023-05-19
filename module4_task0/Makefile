@@ -10,7 +10,7 @@ DOCKER_IMAGE=golang:1.15.8-buster
 
 build:	## Generate the source code of the application to a binary.
 	$(DOCKER) $(DOCKER_IMAGE) sh -c "./setup.sh $(MAKE) lint \
-	&& $(GO) mod tidy \
+	&& $(GO) mod vendor \
 	&& $(MAKE) check \
 	&& $(HUGO) \
 	&& $(GO) build -o $(TARGET)"
