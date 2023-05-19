@@ -57,7 +57,7 @@ jobs:
           publish-dir: './module3_task5/dist'
           production-branch: master
           github-token: ${{ secrets.TOKEN }}
-          deploy-message: 'Published on'
+          deploy-message: ":tada: Published on $(date) :rocket: Deployed on $(date)"
           enable-pull-request-comment: true
           enable-commit-comment: true
           overwrites-pull-request-comment: true
