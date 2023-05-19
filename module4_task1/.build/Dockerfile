@@ -6,15 +6,11 @@ ENV PATH="/usr/local/go/bin:${PATH}"
 RUN apt-get update && \
     apt-get -y install sudo curl
 
-RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-	&& apt-get install -y --no-install-recommends \
-	nodejs=14.* \
-	make=4.* \
-	# Cleanup APT cache to ease extension of this image
-	&& apt-get clean \
-
-  	&& rm -rf /var/lib/apt/lists/*
-
+RUN sudo curl -sL https://deb.nodesource.com/setup_14.x | sudo bash - \
+  && sudo apt-get update \
+  && sudo apt-get install -y --no-install-recommends nodejs=14.* make=4.* \
+  && sudo apt-get clean \
+  && sudo rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g npm@9.5.1
 
