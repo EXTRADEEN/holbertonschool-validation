@@ -9,27 +9,30 @@ on:  # yamllint disable-line rule:truthy
     - cron: '0 0 * * *'
   pull_request:
     types: [opened, reopened, edited, ready_for_review]
-
 jobs:
   build:
     permissions:
       contents: write
-
     runs-on: ubuntu-22.04
-
     steps:
-      - name: "Checkout"  # Download code from the repository
+      - name: Checkout  # Download code from the repository
         uses: actions/checkout@v3
 
-      - name: "Run bash script"
+      - name: Run file sh
         run: cd module3_task5 && ./setup.sh
 
-      - name: "Run make build"  # Execute the command make build
+      - name: Run make build
         run: cd module3_task5 && make build
 
-      - name: "Testing"
+      - name: Run make lint
+        run: cd module3_task5 && make lint
+
+      - name: Run make validate
+        run: cd module3_task5 && make validate
+
+      - name: Test
         run: |
-          cd module3_task5 && make validate
+          cd module3_task5
           make integration-tests
           make unit-tests
           make package
@@ -45,20 +48,20 @@ jobs:
             module3_task5/awesome-website.zip
             module3_task5/DEPLOY.md
 
-      - name: "archive build"
+      - name: Archive build
         uses: actions/upload-artifact@v3
         with:
           name: "upload package"
           path: module3_task5/awesome-website.zip
 
-      - name: deploy
+      - name: Deploy to Netlify
         uses: nwtgck/actions-netlify@v2.0
         with:
-          publish-dir: './module3_task5/dist'
-          production-branch: master
-          github-token: ${{ secrets.TOKEN }}
-          deploy-message: ":tada: Published on $(date) :rocket: Deployed on $(date)"
-          enable-pull-request-comment: true
+          publish-dir: './dist'
+          production-branch: main
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          deploy-message: "🎉 Published on $(date) 🚀 Deployed on $(date)"
+          enable-pull-request-comment: false
           enable-commit-comment: true
           overwrites-pull-request-comment: true
         env:
