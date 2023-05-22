@@ -1,18 +1,17 @@
-FROM golang:1.15.8-buster
+FROM golang:latest
 
-ENV PATH="/usr/local/go/bin:/opt/W3C-Validator:${PATH}"
-
-# Install sudo
-RUN apt-get update && \
-    apt-get -y install curl python3-pip
+RUN apt-get update && apt-get -y install --no-install-recommends apt-utils \
+    && apt-get -y install curl python3-pip \
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-	&& apt-get install -y --no-install-recommends \
-	nodejs=14.* \
-	make=4.* \
-	# Cleanup APT cache to ease extension of this image
-	&& apt-get clean \
-  	&& rm -rf /var/lib/apt/lists/*
+    && apt-get install -y --no-install-recommends \
+    nodejs=14.* \
+    make=4.* \
+    # Cleanup APT cache to ease extension of this image
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 
 RUN npm install -g npm@9.5.1
 
