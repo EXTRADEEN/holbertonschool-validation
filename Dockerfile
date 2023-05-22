@@ -1,23 +1,16 @@
 FROM ubuntu:22.04
-
 ENV PATH="/usr/local/go/bin:${PATH}"
-
 # Install sudo
 RUN apt-get update && \
     apt-get -y install sudo curl
-
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - \
-	&& apt-get install -y --no-install-recommends \
-	nodejs=14.* \
-	make=4.* \
-	# Cleanup APT cache to ease extension of this image
-	&& apt-get clean \
-
-  	&& rm -rf /var/lib/apt/lists/*
-
-
+    && apt-get install -y --no-install-recommends \
+    nodejs=14.* \
+    make=4.* \
+    # Cleanup APT cache to ease extension of this image
+    && apt-get clean \
+    && rm -rf /var/lib/apt/lists/*
 RUN npm install -g npm@9.5.1
-
 ## Install Golang from binary distribution
 ARG GO_VERSION="1.20.4"
 ARG GO_CHECKSUM="698ef3243972a51ddb4028e4a1ac63dc6d60821bf18e59a807e051fee0a385bd"
@@ -34,19 +27,13 @@ RUN curl --silent --show-error --location --output /tmp/go.tgz \
   && go version | grep "${GO_VERSION}" \
   # Cleanup
   && rm -f /tmp/go.tgz
-
-
 # Create a new user called student
 RUN useradd -m student
-
 # Add the student user to the sudo group
 RUN usermod -aG sudo student
-
 # Allow the student user to use sudo without a password prompt
 RUN echo 'student ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
-
 # Switch to the student user
 USER student
-
 # Set the default command to run as the student user
 CMD ["/bin/bash"]
