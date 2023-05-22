@@ -4,7 +4,7 @@ RUN sed -i 's/archive.ubuntu.com/mirror.example.com/g' /etc/apt/sources.list
 
 RUN apt-get update && apt-get upgrade -y
 
-RUN apt-get install -y curl gnupg
+RUN apt-get install -y --fix-broken curl gnupg
 
 # Install Node.js and Make
 RUN curl -sL https://deb.nodesource.com/setup_14.x | bash - && \
